@@ -51,6 +51,8 @@ function authenticateToken(request, response, next) {
         response.send("Invalid JWT Token");
       } else {
         console.log(payload);
+        //passing the username to the next methods
+        request.username = payload.username;
         next();
       }
     });
